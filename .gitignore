@@ -143,3 +143,4 @@ vite.config.ts.timestamp-*
 .idea/
 .DS_Store
 *.log
+.vite app api controllers models store utils router components pages styles
