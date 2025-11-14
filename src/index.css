@@ -1,3 +1,199 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ==========================================================================
+   Jarvis / Lovable Design System
+   ==========================================================================
+   All brand tokens, gradients, and animations are defined here.
+   Uses HSL colors for easy dark-mode and theme control.
+   ========================================================================== */
+
+@layer base {
+    :root {
+        /* === Brand Colors === */
+        --background: 0 0% 100%;
+        --foreground: 210 22% 15%;
+
+        /* Primary - Jarvis Red */
+        --primary: 356 69% 48%;
+        --primary-foreground: 0 0% 100%;
+        --primary-hover: 356 69% 40%;
+
+        /* Secondary - Light Frosted */
+        --secondary: 200 30% 96%;
+        --secondary-foreground: 356 69% 48%;
+
+        /* Accent - Jarvis Red instead of Navy */
+        --accent: 356 69% 48%;
+        --accent-foreground: 0 0% 100%;
+        --accent-hover: 356 69% 40%;
+
+        /* Neutral */
+        --card: 0 0% 100%;
+        --card-foreground: 210 22% 15%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 210 22% 15%;
+        --muted: 200 30% 96%;
+        --muted-foreground: 210 10% 40%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+
+        --border: 210 20% 90%;
+        --input: 210 20% 90%;
+        --ring: 356 69% 48%;
+        --radius: 0.5rem;
+
+        /* === Jarvis Tokens === */
+        --jarvis-red: 356 69% 48%;
+        --jarvis-gray: 210 10% 46%;
+        --jarvis-light: 200 30% 96%;
+
+        /* === Gradients === */
+        --gradient-hero: linear-gradient(135deg, hsl(356 69% 48%) 0%, hsl(356 69% 58%) 100%);
+        --gradient-accent: linear-gradient(135deg, hsl(356 69% 48%) 0%, hsl(356 69% 40%) 100%);
+        --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(356 5% 98%) 100%);
+        --gradient-card: linear-gradient(135deg, hsl(356 69% 50%) 0%, hsl(356 69% 40%) 100%);
+
+        /* === Glass Effects === */
+        --glass-bg: hsla(0 0% 100% / 0.15);
+        --glass-bg-strong: hsla(0 0% 100% / 0.25);
+        --glass-border: hsla(0 0% 100% / 0.3);
+        --glass-shadow: 0 8px 32px 0 hsla(0 0% 0% / 0.15);
+        --glass-highlight: hsla(0 0% 100% / 0.8);
+        --glass-card: hsla(0 0% 100% / 0.85);
+        --glass-card-border: hsla(356 69% 48% / 0.25);
+        --glass-card-shadow: 0 8px 32px 0 hsla(356 69% 48% / 0.15);
+
+        /* === Shadows === */
+        --shadow-elegant: 0 10px 30px -10px hsl(356 69% 48% / 0.3);
+        --shadow-glow: 0 0 40px hsl(356 69% 48% / 0.4);
+
+        /* === Smooth Transitions === */
+        --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* === Dark Mode Overrides === */
+    .dark {
+        --background: 210 22% 10%;
+        --foreground: 0 0% 98%;
+        --primary: 356 69% 55%;
+        --primary-hover: 356 69% 65%;
+        --secondary: 210 20% 15%;
+        --accent: 356 69% 50%;
+        --accent-hover: 356 69% 60%;
+        --border: 210 20% 20%;
+        --ring: 356 69% 50%;
+    }
+}
+
+/* === Base Typography & Structure === */
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground font-albert-sans antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-raleway font-bold tracking-tight;
+    }
+
+    html, body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+    }
+}
+
+/* === Utility Classes === */
+@layer utilities {
+    /* --- Glass Effects --- */
+    .glass {
+        background: var(--glass-bg) !important;
+        backdrop-filter: blur(32px) saturate(200%) !important;
+        -webkit-backdrop-filter: blur(32px) saturate(200%) !important;
+        border: 1px solid var(--glass-border) !important;
+        box-shadow: var(--glass-shadow), inset 0 0 20px hsla(0 0% 100% / 0.05) !important;
+        position: relative;
+    }
+
+    .glass::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
+        opacity: 0.6;
+        border-radius: inherit;
+    }
+
+    .glass-card {
+        background: var(--glass-card) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        border: 1px solid var(--glass-card-border) !important;
+        box-shadow: var(--glass-card-shadow), inset 0 1px 1px 0 hsla(0 0% 100% / 0.8) !important;
+    }
+
+    /* --- Gradients --- */
+    .gradient-hero {
+        background: var(--gradient-hero);
+    }
+
+    .gradient-accent {
+        background: var(--gradient-accent);
+    }
+
+    .gradient-text {
+        background: var(--gradient-hero);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* --- Shadows & Motion --- */
+    .shadow-elegant {
+        box-shadow: var(--shadow-elegant);
+    }
+
+    .shadow-glow {
+        box-shadow: var(--shadow-glow);
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-glow {
+        animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    .liquid-morph {
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* --- Keyframes --- */
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    @keyframes glow {
+        0% {
+            box-shadow: 0 0 20px hsl(356 69% 48% / 0.3),
+            0 0 40px hsl(356 69% 48% / 0.2);
+        }
+        100% {
+            box-shadow: 0 0 30px hsl(356 69% 48% / 0.5),
+            0 0 60px hsl(356 69% 48% / 0.3);
+        }
+    }
+}

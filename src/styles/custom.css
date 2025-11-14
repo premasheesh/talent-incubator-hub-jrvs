@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Custom Utilities for Hero and Card Effects === */
+
+.gradient-hero {
+    background: linear-gradient(135deg, #2563eb, #9333ea);
+}
+
+.gradient-accent {
+    background: linear-gradient(135deg, #9333ea, #ec4899);
+}
+
+.liquid-morph {
+    transition: all 0.4s ease;
+}
+
+.liquid-morph:hover {
+    transform: scale(1.03);
+}
+
+.shadow-elegant {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-glow {
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.3);
+}
+.animate-glow {
+    animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.1),
+        0 0 16px rgba(147, 51, 234, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2),
+        0 0 40px rgba(147, 51, 234, 0.6);
+    }
+}
+/* ============================
+   Custom CTA Gradient Button
+   ============================ */
+.btn-gradient {
+    @apply text-lg px-8 py-6 font-semibold text-white rounded-md
+    bg-gradient-to-r from-[#E52E71] to-[#FF8A00]
+    shadow-lg border border-white/20 backdrop-blur-md
+    transition-all duration-300 ease-in-out;
+}
+
+.btn-gradient:hover {
+    @apply from-[#FF8A00] to-[#E52E71]
+    shadow-[0_0_25px_rgba(255,255,255,0.3)]
+    transform -translate-y-[1px];
+}
+/* ============================================
+   Frosted Glow Button  (Lovable CTA clone)
+   ============================================ */
+.btn-glow {
+    @apply inline-flex items-center justify-center gap-2
+    whitespace-nowrap font-medium text-white text-lg
+    h-11 px-8 py-6 rounded-md
+    bg-white/15 border border-white/30
+    backdrop-blur-3xl backdrop-saturate-200
+    transition-all duration-300 ease-in-out
+    shadow-[0_0_15px_rgba(255,255,255,0.1)]
+    hover:bg-white/20 hover:shadow-[0_0_25px_rgba(255,255,255,0.3)]
+    focus-visible:outline-none focus-visible:ring-2
+    focus-visible:ring-white/40 focus-visible:ring-offset-2
+    disabled:pointer-events-none disabled:opacity-50;
+}
+
+.btn-glow svg {
+    @apply pointer-events-none shrink-0 h-5 w-5;
+}
+/* ============================================
+   1️⃣ Frosted Glow Button (Hero CTA)
+   ============================================ */
+.btn-glow {
+    @apply inline-flex items-center justify-center gap-2 text-lg font-medium text-white
+    px-8 py-6 rounded-md h-11
+    bg-white/15 border border-white/30
+    backdrop-blur-3xl backdrop-saturate-200
+    transition-all duration-300 ease-in-out
+    shadow-[0_0_15px_rgba(255,255,255,0.1)]
+    hover:bg-white/20 hover:shadow-[0_0_25px_rgba(255,255,255,0.3)]
+    focus-visible:outline-none focus-visible:ring-2
+    focus-visible:ring-white/40 focus-visible:ring-offset-2;
+}
+
+.btn-glow svg {
+    @apply mr-2 h-5 w-5 pointer-events-none shrink-0;
+}
+
+/* ============================================
+   2️⃣ Glass Button (Transparent Frost)
+   ============================================ */
+.btn-glass {
+    @apply inline-flex items-center justify-center gap-2 text-lg font-medium text-white
+    px-8 py-6 rounded-md h-11
+    bg-white/10 border border-white/20
+    backdrop-blur-xl backdrop-saturate-150
+    transition-all duration-300 ease-in-out
+    hover:bg-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)];
+}
+
+.btn-glass svg {
+    @apply mr-2 h-5 w-5 pointer-events-none shrink-0;
+}
+
+/* ============================================
+   3️⃣ Gradient Button (Vibrant CTA)
+   ============================================ */
+.btn-gradient {
+    @apply inline-flex items-center justify-center gap-2 text-lg font-semibold text-white
+    px-8 py-6 rounded-md h-11
+    bg-gradient-to-r from-[#E52E71] to-[#FF8A00]
+    transition-all duration-300 ease-in-out
+    shadow-lg border border-transparent
+    hover:from-[#FF8A00] hover:to-[#E52E71]
+    hover:shadow-[0_0_25px_rgba(255,255,255,0.3)]
+    focus-visible:outline-none focus-visible:ring-2
+    focus-visible:ring-white/40 focus-visible:ring-offset-2;
+}
+
+.btn-gradient svg {
+    @apply mr-2 h-5 w-5 pointer-events-none shrink-0;
+}
